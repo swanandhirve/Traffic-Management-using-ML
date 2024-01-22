@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="option">
+  <h1>Select Anomaly</h1>
+  <form action="" method="post">
+    <input list="Scenario" name="scen">
+    <datalist id="Scenario">
+    <option value="Wrong Side Vehicle">
+    <option value="Unauthorized Vehicle">
+    </datalist>
+    <input type="submit">
+  </form>
+</div>
+ {% endblock %}
