@@ -1,0 +1,11 @@
+*.rar
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wmv
+Requirements.txt
+/frames/
+/_pycache_/
+/.idea/
+
