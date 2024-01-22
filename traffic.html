@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+function refresh(node)
+{
+   var times = 1000; // gap in Milli Seconds;
+
+   (function startRefresh()
+   {
+      var address;
+      if(node.src.indexOf('?')>-1)
+       address = node.src.split('?')[0];
+      else 
+       address = node.src;
+      node.src = address+"?time="+new Date().getTime();
+
+      setTimeout(startRefresh,times);
+   })();
+
+}
+
+window.onload = function()
+{
+  var node1 = document.getElementById('img1');
+  var node2 = document.getElementById('img2');
+  var node3 = document.getElementById('img3');
+  var node4 = document.getElementById('img4');  
+  refresh(node1);
+  refresh(node2);
+  refresh(node3);
+  refresh(node4);  
+
+  // you can refresh as many images you want just repeat above steps
+}
+</script>
+
+<div class="vehicle" style="float: left;">
+    <h1>Real Time Traffic Monitoring</h1>
+    <p></p>
+     <img id="img1" src="/static/images/1.jpg">
+     <img id="img2" src="/static/images/2.jpg">
+    <br><br>
+     <img id="img3" src="/static/images/3.jpg">
+     <img id="img4" src="/static/images/4.jpg">
+     <br><br>
+     <!-- img src="{{ url_for('video_stream') }}" style="display: none;" -->
+
+</div>
+<div class="vehicle" style="float: right;">
+    <h1>Priority Calculations</h1>
+    <p></p>
+    <table>
+        <tr>
+          <th>Signal No</th>
+          <th>Total Cars</th>          
+          <th>Priority</th>
+          <th>Time</th>
+          <th>Signal Type</th>
+        </tr>
+        <tr>
+          <td>Signal 1</td>
+          <td>{{ total_cars1 }}</td>          
+          <td>{{ P1 }}</td>
+          <td>{{ T1 }}</td>
+          <td>{{ Sig1 }}</td>
+        </tr>
+        <tr>
+          <td>Signal 2</td>
+          <td>{{ total_cars2 }}</td>           
+          <td>{{ P2 }}</td>
+          <td>{{ T2 }}</td>
+          <td>{{ Sig2 }}</td>
+        </tr>
+        <tr>
+          <td>Signal 3</td>
+          <td>{{ total_cars3 }}</td>           
+          <td>{{ P3 }}</td>
+          <td>{{ T3 }}</td>
+          <td>{{ Sig3 }}</td>
+        </tr>
+        <tr>
+          <td>Signal 4</td>
+          <td>{{ total_cars4 }}</td>           
+          <td>{{ P4 }}</td>
+          <td>{{ T4 }}</td>
+          <td>{{ Sig4 }}</td>
+      </table>
+
+      <form action="" method="post">
+        <input type="text" placeholder="Enter Scen No" name="scenNo" value="{{
+          request.form.username }}">
+        <input class="btn btn-default" type="submit" value="Calculate">
+      </form>  
+
+</div>
+{% endblock %}
