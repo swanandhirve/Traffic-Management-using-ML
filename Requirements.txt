@@ -1,0 +1,13 @@
+Code tested on python 3.6.0
+
+pip install following
+
+flask
+tensorflow==1.14
+keras==2.2.5
+protobuf==3.6.0
+pyttsx3
+
+
+When using flask
+model._make_predict_function() #add this line after loading pretrained model

@@ -8,7 +8,8 @@ ghghgh
 fgrfhtjt
 rtrhgrgf
 """
-import cv2
+import cv2 
+
 
 cap = cv2.VideoCapture('video.avi')
 

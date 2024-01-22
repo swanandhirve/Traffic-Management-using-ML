@@ -48,25 +48,15 @@ def traffic():
         O = [22,180,231]
 
         if request.form['scenNo'] == '1':
-            img1 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/1/1.jpg"))
-            img2 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/1/2.jpg"))
-            img3 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/1/3.jpg"))
-            img4 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/1/4.jpg"))
+            img1 = cv2.imread(os.path.join("static/images/1/","1.jpg"))
+            img2 = cv2.imread(os.path.join("static/images/1/","2.jpg"))
+            img3 = cv2.imread(os.path.join("static/images/1/","3.jpg"))
+            img4 = cv2.imread(os.path.join("static/images/1/","4.jpg"))
         elif request.form['scenNo'] == '2': 
-            img1 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/5.jpg"))
-            img2 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/6.jpg"))
-            img3 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/7.jpg"))
-            img4 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/8.jpg"))
-        elif request.form['scenNo'] == '3': 
-            img1 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/9.jpg"))
-            img2 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/10.jpg"))
-            img3 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/11.jpg"))
-            img4 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/12.jpg"))
-        elif request.form['scenNo'] == '4': 
-            img1 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/13.jpg"))
-            img2 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/14.jpg"))
-            img3 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/15.jpg"))
-            img4 = cv2.imread(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2/16.jpg"))
+            img1 = cv2.imread(os.path.join("static/images/2/","1.jpg"))
+            img2 = cv2.imread(os.path.join("static/images/2/","2.jpg"))
+            img3 = cv2.imread(os.path.join("static/images/2/","3.jpg"))
+            img4 = cv2.imread(os.path.join("static/images/2/","4.jpg"))
 
         #cv2.imwrite(os.path.join("static/images/","1.jpg"),img1)
         #cv2.imwrite(os.path.join("static/images/","2.jpg"),img2)
@@ -163,7 +153,7 @@ def traffic():
             #cv2.imshow('video2', frames)
             cv2.putText(img1,"Cars:"+ str(total_cars1),(200,20),cv2.FONT_HERSHEY_SIMPLEX,0.8,(0,255,0),2)
             cv2.circle(img1,(50,20),20,color,-1)
-            cv2.imwrite(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/1.jpg"),img1)
+            cv2.imwrite(os.path.join("static/images/","1.jpg"),img1)
 
         for (x,y,w,h) in cars2:
             print(x)
@@ -179,7 +169,7 @@ def traffic():
             #cv2.imshow('video2', frames)
             cv2.putText(img2,"Cars:"+ str(total_cars2),(200,20),cv2.FONT_HERSHEY_SIMPLEX,0.8,(0,255,0),2)
             cv2.circle(img2,(50,20),20,color,-1)
-            cv2.imwrite(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/2.jpg"),img2)
+            cv2.imwrite(os.path.join("static/images/","2.jpg"),img2)
 
         for (x,y,w,h) in cars3:
             print(x)
@@ -195,7 +185,7 @@ def traffic():
             #cv2.imshow('video2', frames)
             cv2.putText(img3,"Cars:"+ str(total_cars3),(200,20),cv2.FONT_HERSHEY_SIMPLEX,0.8,(0,255,0),2)
             cv2.circle(img3,(50,20),20,color,-1)
-            cv2.imwrite(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/3.jpg"),img3)
+            cv2.imwrite(os.path.join("static/images/","3.jpg"),img3)
 
         for (x,y,w,h) in cars4:
             print(x)
@@ -211,7 +201,7 @@ def traffic():
             #cv2.imshow('video2', frames)
             cv2.putText(img4,"Cars:"+ str(total_cars4),(200,20),cv2.FONT_HERSHEY_SIMPLEX,0.8,(0,255,0),2)
             cv2.circle(img4,(50,20),20,color,-1)
-            cv2.imwrite(os.path.join("D:/Traffic scheduling/Traffic scheduling/TrafficSignal/static/images/4.jpg"),img4) 
+            cv2.imwrite(os.path.join("static/images/","4.jpg"),img4) 
 
         return render_template('traffic.html',P1=P1,P2=P2,P3=P3,P4=P4,T1=T1,T2=T2,T3=T3,T4=T4,Sig1=Sig1,Sig2=Sig2,Sig3=Sig3,Sig4=Sig4,total_cars1=total_cars1,total_cars2=total_cars2,total_cars3=total_cars3,total_cars4=total_cars4)
     return render_template('traffic.html')
@@ -244,5 +234,4 @@ def video_stream4():
 """
 
 if __name__ == '__main__':
-    #app.run(host='0.0.0.0', debug=True, threaded=True)
-    app.run( debug=True, threaded=True)
+    app.run(host='0.0.0.0', debug=True, threaded=True)
